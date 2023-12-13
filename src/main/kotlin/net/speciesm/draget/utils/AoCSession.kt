@@ -1,5 +1,6 @@
-package net.speciesm.draget
+package net.speciesm.draget.utils
 
+import net.speciesm.draget.XDGUtils
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebDriverException
 import org.openqa.selenium.firefox.FirefoxDriver
@@ -10,7 +11,7 @@ import java.util.*
 import kotlin.system.exitProcess
 import kotlin.time.Duration.Companion.seconds
 
-class AoCSession {
+object AoCSession {
     val configPath = "${XDGUtils.getConfigHome("draget_aoc")}/draget_aoc2023.properties"
 
     fun getSession(interactiveLogin: Boolean): String {
@@ -18,8 +19,7 @@ class AoCSession {
         if (envSession != null) {
             println("Using 'AOC_SESSION' for session.")
             return envSession
-        }
-        else {
+        } else {
             val readProperty = readSession(configPath)
             return if (readProperty != null) {
                 println("Loaded session from properties.")
@@ -36,10 +36,10 @@ class AoCSession {
         }
     }
 
-    fun readSession(configPath: String): String? {
+    fun readSession(filePath: String): String? {
         try {
             val properties = Properties()
-            FileReader(configPath).use {
+            FileReader(filePath).use {
                 properties.load(it)
                 return properties.getProperty("session")
             }
@@ -48,10 +48,10 @@ class AoCSession {
         }
     }
 
-    fun storeSession(configPath: String, aocSession: String) {
+    fun storeSession(filePath: String, aocSession: String) {
         val properties = Properties()
         properties.setProperty("session", aocSession)
-        FileWriter(configPath).use {
+        FileWriter(filePath).use {
             properties.store(it, "# This is your AoC session, do not share or commit this publicly")
         }
     }

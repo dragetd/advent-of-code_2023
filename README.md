@@ -22,6 +22,15 @@ Even if I want to learn myself, I still very much appreciate if you want to make
 
 ## Changelog
 
+### 2023-12-13
+
+* Refactor to properly use reflection on class names, no need to specify day numbers anymore
+* Save inputs and load them from disk, if already loaded
+
+### 2023-12-11
+
+* Solve Day 11
+
 ### 2023-12-03
 
 * Initial project setup
