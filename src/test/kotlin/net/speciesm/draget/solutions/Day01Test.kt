@@ -6,14 +6,14 @@ import org.junit.jupiter.api.Test
 
 class Day01Test {
 
-    val input1 = """
+    private val input1 = """
         1abc2
         pqr3stu8vwx
         a1b2c3d4e5f
         treb7uchet
     """.trimIndent()
 
-    val input2 = """
+    private val input2 = """
         two1nine
         eightwothree
         abcone2threexyz
@@ -23,7 +23,7 @@ class Day01Test {
         7pqrstsixteen
     """.trimIndent()
 
-    val cut = AoCSolutionRepository.findByDay(AoCSolutionRepository.dayByClass(this.javaClass))
+    private val cut = AoCSolutionRepository.findByDay(AoCSolutionRepository.dayByClass(this.javaClass))
 
     @Test
     fun solution1() {

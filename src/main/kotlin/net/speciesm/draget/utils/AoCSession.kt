@@ -20,10 +20,10 @@ object AoCSession {
             println("Using 'AOC_SESSION' for session.")
             return envSession
         } else {
-            val readProperty = readSession(configPath)
-            return if (readProperty != null) {
+            val aocSavedSession = readSession(configPath)
+            return if (aocSavedSession != null) {
                 println("Loaded session from properties.")
-                readProperty
+                aocSavedSession
             } else if (interactiveLogin) {
                 val aocSession = getSessionInteractivelyOrQuit()
                 println("Saving new session…")
@@ -36,7 +36,7 @@ object AoCSession {
         }
     }
 
-    fun readSession(filePath: String): String? {
+    private fun readSession(filePath: String): String? {
         try {
             val properties = Properties()
             FileReader(filePath).use {
@@ -48,7 +48,7 @@ object AoCSession {
         }
     }
 
-    fun storeSession(filePath: String, aocSession: String) {
+    private fun storeSession(filePath: String, aocSession: String) {
         val properties = Properties()
         properties.setProperty("session", aocSession)
         FileWriter(filePath).use {
@@ -58,7 +58,7 @@ object AoCSession {
 
     enum class AuthState { BeforeAuth, ActiveAuth }
 
-    fun getSessionInteractivelyOrQuit(): String {
+    private fun getSessionInteractivelyOrQuit(): String {
         val aocURLs = listOf("https://adventofcode.com")
         val authURLs = listOf("https://github.com")
         val sessionTimeoutMillis = 120.seconds.inWholeMilliseconds
@@ -104,7 +104,7 @@ object AoCSession {
         exitProcess(1)
     }
 
-    fun initWebDriverOrQuit(): WebDriver {
+    private fun initWebDriverOrQuit(): WebDriver {
         val maxAttempts = 3;
         val sleepMillis = 1000L
         val authURL = "https://adventofcode.com/auth/github"

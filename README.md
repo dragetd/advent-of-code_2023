@@ -25,6 +25,7 @@ Even if I want to learn myself, I still very much appreciate if you want to make
 ### 2023-12-16
 
 * Solve day 7
+* Refactor some code to make it cleaner
 
 ### 2023-12-13
 

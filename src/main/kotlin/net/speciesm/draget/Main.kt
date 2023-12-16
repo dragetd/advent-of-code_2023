@@ -17,19 +17,16 @@ class Main : CliktCommand() {
 
     override fun run() {
         val session = AoCSession.getSession(interactiveLogin)
-        val inputRepository = AoCInputRepository(session)
 
         for (day in minDay..24) {
-            val input: String
-            try {
-                input = inputRepository.findByDay(day)
+            val input = try {
+                AoCInputRepository.findByDay(day, session)
             } catch (e: Exception) {
                 println(e.message)
                 continue
             }
-            val solution: DaySolution
-            try {
-                solution = AoCSolutionRepository.findByDay(day)
+            val solution = try {
+                AoCSolutionRepository.findByDay(day)
             } catch (e: ClassNotFoundException) {
                 println("Day$day: Not yet implemented.")
                 continue
