@@ -4,6 +4,7 @@ import net.speciesm.draget.DaySolution
 
 
 class Day01 : DaySolution {
+object Day01 : DaySolution {
 
     override fun solve1(input: String): String {
         return input.lines().sumOf {

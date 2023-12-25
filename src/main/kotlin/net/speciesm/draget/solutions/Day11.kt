@@ -5,7 +5,7 @@ import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
 
-class Day11 : DaySolution {
+object Day11 : DaySolution {
 
     data class Galaxy(var x: Int, var y: Int) {
         fun distanceTo(galaxy: Galaxy, expandedXIndices: List<Int>, expandedYIndices: List<Int>, expandFactor: Int = 2): Long {

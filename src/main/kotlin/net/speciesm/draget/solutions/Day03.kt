@@ -3,7 +3,7 @@ package net.speciesm.draget.solutions
 import net.speciesm.draget.DaySolution
 
 
-class Day03 : DaySolution {
+object Day03 : DaySolution {
 
     data class Number(val number: Long, val x: Int, val y: Int)
 

@@ -2,7 +2,7 @@ package net.speciesm.draget.solutions
 
 import net.speciesm.draget.DaySolution
 
-class Day07 : DaySolution {
+object Day07 : DaySolution {
 
     val inputRegex = """(.....) (\d+)""".toRegex()
 

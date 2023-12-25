@@ -21,6 +21,6 @@ object AoCSolutionRepository {
 
     fun findByDay(day: Int): DaySolution {
         val className = "net.speciesm.draget.solutions.Day${String.format("%02d", day)}"
-        return Class.forName(className).newInstance() as DaySolution
+        return Class.forName(className).getField("INSTANCE").get(null) as DaySolution
     }
 }

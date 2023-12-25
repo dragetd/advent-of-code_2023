@@ -3,7 +3,7 @@ package net.speciesm.draget.solutions
 import net.speciesm.draget.DaySolution
 import kotlin.math.round
 
-class Day14 : DaySolution {
+object Day14 : DaySolution {
 
     data class Platform(val width: Int, val height: Int) {
         enum class Element(val representation: Char) {

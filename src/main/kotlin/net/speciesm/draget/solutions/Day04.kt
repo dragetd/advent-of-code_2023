@@ -4,7 +4,7 @@ import net.speciesm.draget.DaySolution
 import kotlin.math.pow
 
 
-class Day04 : DaySolution {
+object Day04 : DaySolution {
 
     val numberRegex = """Card \d+: ([\d ]+)|([\d ]+)""".toRegex()
 
