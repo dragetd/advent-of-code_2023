@@ -3,8 +3,15 @@ package net.speciesm.draget.solutions
 import net.speciesm.draget.DaySolution
 
 
-class Day01 : DaySolution {
 object Day01 : DaySolution {
+
+    @JvmStatic
+    fun main(args: Array<String>) {
+        """1abc2
+        pqr3stu8vwx
+        a1b2c3d4e5f
+        treb7uchet""".trimIndent().printSolve1()
+    }
 
     override fun solve1(input: String): String {
         return input.lines().sumOf {

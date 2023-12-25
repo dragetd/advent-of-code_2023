@@ -22,6 +22,11 @@ Even if I want to learn myself, I still very much appreciate if you want to make
 
 ## Changelog
 
+### 2023-12-25
+
+* Model all days as instances
+* Allow adding a main method to each solution and simple execution in a string input. See Day01 for an example.
+
 ### 2023-12-17
 
 * Solve day 14 part 1, fail on part 2
